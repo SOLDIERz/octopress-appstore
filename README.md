@@ -1,3 +1,11 @@
+# edit by techlux 
+
+- added only German App Store Support - there is still some Bug that some Apps does not show the German App Market. Didn't know why
+- added Price and Artistname
+- Price will be shown in Û ord if it not work in $
+
+THX @Otavio Cordeiro for the cool Plugin
+
 # Octopress AppStore Plugin
 
 An octopress plugin that displays app info from the AppStore. Please note that it only works with apps availables at the US AppStore.

@@ -35,14 +35,34 @@ module Jekyll
       name = json['trackName']
       icon = json['artworkUrl60']
       link = json['trackViewUrl']
+      price = json['price']
+      artist = json['artistName']
+      currency = json['currency']
+
+        if (currency == "USD")
+          currency_new = "$"
+
+        elsif (currency == "EUR")
+          currency_new = "Û"
+
+        end
+        
       bundleId = json['bundleId'].strip.gsub('.', '-').downcase;
 
       <<-HTML
 <p id='app-widget-#{bundleId}'>
-  <img src='#{icon}' class='app-icon' style='width:60px; height:60px; vertical-align:middle; margin: 0.1em; border: 0em' />
-  <span class='app-name'>
-    <a class='#{bundleId}' href='#{link}' target='_blank'>#{name}</a>
-  </span>
+  <table cellspacing="0" cellpadding="0">
+   <tr>
+    <td rowspan="3"><img src='#{icon}' class='app-icon'; margin: 0.1em; border: 0em' /></td>
+    <td> <a href='#{link}' target='_blank' >#{name}</a></td>
+   </tr>
+   <tr>
+    <td>#{price}&nbsp;#{currency_new}</td>
+   </tr>
+   <tr>
+    <td>#{artist}</td>
+   </tr>
+  </table>
 </p>
       HTML
     end
